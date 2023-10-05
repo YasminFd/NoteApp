@@ -1,0 +1,18 @@
+<%- include('layout', { title: title }) %>
+
+<!-- Child template-specific content goes here -->
+<section class="text-center ">
+  <div class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+    <form method="post" action="/login" style="width: 300px;">
+      <div class="mb-3">
+        <label for="name" class="form-label">Username:</label>
+        <input type="text" class="form-control" name="name" id="name">
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password:</label>
+        <input type="password" class="form-control" name="password" id="password">
+      </div>
+      <button type="submit" class="btn btn-primary">Login</button>&nbsp;&nbsp;<a href="/" class="card-link">signup</a>
+    </form>
+  </div>
+</section>

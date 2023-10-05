@@ -1,0 +1,23 @@
+<%- include('layout', { title: title }) %>
+
+<!-- Child template-specific content goes here -->
+<section>
+    <div class="center-container">
+        <a href="/home/<%= note.user_id %>" class="card-link mx-10 my-5">&lt;&lt;Back</a>&nbsp;&nbsp;&nbsp;
+        <div class="note-container">
+            <div class="note-title"><%= note.title %></div>
+            <br>
+            <hr>
+            <br>
+            <div class="note-description">
+                <%= note.description %>
+            </div>
+        </div>
+        &nbsp;&nbsp;&nbsp;<a  href="/edit/<%= note.id %>/<%= note.user_id %>" class="card-link mx-10 my-5">Edit>></a>
+    </div>
+    <div class="mx-5 ">
+    
+    
+</div>
+
+</section>

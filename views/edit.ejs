@@ -1,0 +1,16 @@
+<%- include('layout', { title: title }) %>
+<section>
+    <form class="mx-5" method="post" action="/update_note">
+        <input type="hidden" name="id" id="id" aria-describedby="ID" value="<%= note.id %>">
+        <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input type="text" class="form-control" id="title" aria-describedby="titleHelp" name="title" value="<%= note.title%>">
+      </div>
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea class="form-control" id="description" aria-describedby="descriptionHelp" name="description"><%= note.description %></textarea>
+      </div>
+      
+      <button type="submit" class="btn btn-primary">Edit Note</button>
+    </form>
+</section>

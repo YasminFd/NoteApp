@@ -1,0 +1,34 @@
+.max-height-card {
+    max-height: 100px !important;; /* Set your desired maximum height here */
+    overflow: hidden; /* Hide any content that overflows the maximum height */
+    min-height: 100px;
+  }
+
+  .center-container {
+    display: flex;
+    justify-content: center;
+    min-height: 500px; /* Make it full height of the viewport */
+}
+
+/* Styles for the note container */
+.note-container {
+    width: 60%;
+    padding: 20px;
+    background-color: #fff; /* White background for the note container */
+    border: 2px double #000; /* Double black border for the note container */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Box shadow for a subtle effect */
+    text-align: left;
+    max-width: 700px;
+}
+
+.note-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #000; /* Black color for the title */
+}
+
+.note-description {
+    font-size: 16px;
+    color: #333; /* Dark gray color for the description */
+    margin-top: 10px;
+}
