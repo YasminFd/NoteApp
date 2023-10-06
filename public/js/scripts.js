@@ -1,5 +1,7 @@
 
 const mysql = require('mysql');
+var session
+
 const dbConnection = mysql.createConnection({
     host: 'localhost', // Your MySQL host
     user: 'root', // Your MySQL username
@@ -39,9 +41,9 @@ exports.createTables = function () {
         }
     );
 }
-exports.loginUser = function (name, password, res) {
-    const sql = 'SELECT * FROM users WHERE name = ?';
-    dbConnection.query(sql, [name], (err, results) => {
+exports.loginUser = function (name, password,req, res) {
+    const sql = 'SELECT * FROM users WHERE name = ? and password = ?';
+    dbConnection.query(sql, [name, password], (err, results) => {
         if (err) {
             console.error('Error reading user:', err);
             res.status(500).json({
@@ -53,24 +55,18 @@ exports.loginUser = function (name, password, res) {
             });
         } else {
             const user = results[0];
-            // Compare the provided password with the hashed password from the database
-            
-                if (password ==results[0].password) { 
-                    // Passwords match, return user information
-                    const id = user.id;
-                    res.redirect(`/home/${id}`);
-                } else {
-                    // Passwords don't match
-                    res.status(401).json({
-                        error: 'Incorrect password'
-                    });
-                }
+            session=req.session;
+            session.userid=results[0].id;
+            // Passwords match, return user information
+            const id = user.id;
+            res.redirect(`/home`);
+               
             
         }
     });
 }
 
-exports.signupUser = function (name, password, password2, res) {
+exports.signupUser = function (name, password, password2, req, res) {
     const sql = 'INSERT INTO users (name, password) VALUES (?, ?)';
     dbConnection.query(sql, [name, password], (err, result) => {
         if (err || password != password2) {
@@ -80,8 +76,10 @@ exports.signupUser = function (name, password, password2, res) {
             });
         } else {
             const id = result.insertId; // Ensure the correct property name
+            session=req.session;
+            session.userid=id;
             console.log("new user created with ID:", id);
-            res.redirect(`/home/${id}`);
+            res.redirect(`/home`);
         }
     });
 }
