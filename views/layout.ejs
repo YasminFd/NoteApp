@@ -21,7 +21,17 @@
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="/about">About</a>
             </li>
+            
           </ul>
+          
+            <!-- Display content for authenticated users -->
+            <section id="logout">
+            <a class="btn btn-primary"  href="/logout" >Log Out</a>
+            <!-- Other authenticated user content -->
+            </section>
+          
+          
+  
         </div>
       </div>
     </nav>
@@ -34,3 +44,13 @@
  
   </body>
 </html>
+<script>
+  var logoutElement = document.getElementById("logout");
+  var id = session
+// Check if the element exists before trying to hide it
+if (typeof id !== 'undefined') {
+  // Hide the element by setting its display property to "none"
+  logoutElement.style.display = "none !important";
+  console.log(id)
+}
+</script>
