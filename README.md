@@ -7,6 +7,7 @@ This is a note-taking application that allows users to create, read, update, and
 <li>User Authentication: Users can sign up and log in to access their personalized notes with hashed passwords.</li>
 <li>CRUD Operations: Create, Read, Update, and Delete notes.</li>
 <li>Middleware Redirecting: Middleware is used to handle user authentication and redirecting to the login page if necessary.</li>
+<li>Layout template</li>
 
 # Technologies Used
 <li>JavaFX: For the desktop application's graphical user interface.</li>
